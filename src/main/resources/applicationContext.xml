@@ -8,39 +8,9 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
 
-    <context:property-placeholder location="classpath:musicPlayer.properties"/>
 
-    <bean id="music"
-          class="com.lesson.ClassicalMusic">
-    </bean>
-    <bean id="classicalBean"
-          class="com.lesson.ClassicalMusic"
-          init-method="doMyInit"
-          destroy-method="doMyDestroy"
-          factory-method="getClassicalMusic">
-    </bean>
-    <bean id="rockBean"
-          class="com.lesson.RockMusic"
-          scope="prototype"
-          init-method="doMyInit"
-          destroy-method="doMyDestroy">
-    </bean>
-    <bean id="popBean"
-          class="com.lesson.PopMusic"
-          init-method="doMyInit"
-          destroy-method="doMyDestroy">
-    </bean>
+    <context:component-scan base-package="com.lesson" />
+    <context:property-placeholder location="classpath:musicPlayer.properties" />
 
-    <bean id="musicPlayer"
-          class="com.lesson.MusicPlayer">
-        <property name="musicList">
-            <list>
-                <ref bean="popBean"/>
-                <ref bean="rockBean"/>
-                <ref bean="classicalBean"/>
-            </list>
-        </property>
-
-    </bean>
 
 </beans>

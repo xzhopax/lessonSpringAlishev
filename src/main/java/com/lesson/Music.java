@@ -1,5 +1,9 @@
 package com.lesson;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public interface Music {
-    public String Song();
+    String song();
+    String randomSong();
 }
